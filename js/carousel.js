@@ -18,6 +18,6 @@ document.querySelectorAll(".car").forEach(c=>{
  let vis=false,hov=false;
  new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(c);
  c.onmouseenter=()=>hov=true;c.onmouseleave=()=>hov=false;
- if(!reduce)setInterval(()=>{if(vis&&!hov)go(1)},3500);
+ if(!reduce)setInterval(()=>{if(vis&&!hov)go(1)},3300);
 });
 })();
