@@ -4,6 +4,27 @@ const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
 /* ---------- Carrossel ---------- */
 document.querySelectorAll(".car").forEach(c=>{
  const t=c.querySelector(".track"),imgs=[...t.children];
+ const dots=document.createElement("div");
+ dots.className="car-dots";
+ dots.setAttribute("aria-label","Imagens da obra");
+ imgs.forEach((img,index)=>{
+  const dot=document.createElement("button");
+  dot.type="button";
+  dot.setAttribute("aria-label",`Mostrar imagem ${index+1}`);
+  dot.addEventListener("click",()=>t.scrollTo({left:index*(imgs[0].offsetWidth+18),behavior:"smooth"}));
+  dots.appendChild(dot);
+ });
+ c.appendChild(dots);
+ const updateDots=()=>{
+  const step=imgs[0].offsetWidth+18;
+  const index=Math.max(0,Math.min(imgs.length-1,Math.round(t.scrollLeft/step)));
+  [...dots.children].forEach((dot,i)=>{
+   dot.classList.toggle("active",i===index);
+   dot.setAttribute("aria-current",i===index?"true":"false");
+  });
+ };
+ t.addEventListener("scroll",updateDots,{passive:true});
+ updateDots();
  const go=d=>{
   if(d>0&&t.scrollLeft+t.clientWidth>=t.scrollWidth-6)t.scrollTo({left:0,behavior:"smooth"});
   else if(d<0&&t.scrollLeft<6)t.scrollTo({left:t.scrollWidth,behavior:"smooth"});

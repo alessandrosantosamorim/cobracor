@@ -5,10 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cobracor Construções | Reformas e Gestão de Obras</title>
 <meta name="description" content="Reformas completas, construção, drywall, pintura, esquadrias e gestão de obras em São Paulo.">
+<meta name="theme-color" content="#0e1522">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cobracor Construções | Reformas e Gestão de Obras">
+<meta property="og:description" content="Reformas, construções e gestão de obras com organização, transparência e acabamento de alto padrão em São Paulo.">
+<meta property="og:image" content="assets/img/portfolio/seucarro-01.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/img/logo-cobracor-symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"GeneralContractor",
+ "name":"Cobracor Construções",
+ "description":"Reformas completas, construção, drywall, pintura, esquadrias e gestão de obras.",
+ "telephone":"+55-11-93313-4955",
+ "email":"cobracor.construcoes@gmail.com",
+ "areaServed":"São Paulo",
+ "address":{"@type":"PostalAddress","addressRegion":"SP","addressCountry":"BR"}
+}
+</script>
 </head>
 <body>
 <div id="intro"><canvas id="introC"></canvas><div class="ibox"><small>COBRACOR CONSTRUÇÕES</small><h2 id="istep">Etapa 1 de 6</h2><p id="iname"></p><div class="bar"><i id="ibar"></i></div><button id="iskip">Pular animação</button></div></div>
@@ -16,8 +35,8 @@
 <header>
  <div class="wrap nav">
   <a href="#inicio" class="logo"><img src="assets/img/logo-cobracor-symbol.png" alt=""><span><b>COBRACOR</b>CONSTRUÇÕES</span></a>
-  <button class="burger" aria-label="Abrir menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
-  <nav onclick="this.classList.remove('open')">
+  <button class="burger" type="button" aria-label="Abrir menu" aria-controls="main-nav" aria-expanded="false">☰</button>
+  <nav id="main-nav">
    <a href="#empresa">A empresa</a><a href="#servicos">Serviços</a><a href="#portfolio">Obras</a><a href="#diferenciais">Diferenciais</a><a href="#contato">Contato</a>
    <a class="btn solid" data-wa href="#">Solicitar Orçamento</a>
   </nav>
@@ -39,7 +58,10 @@
     <div><b>Transparência</b>durante toda a obra</div>
    </div>
   </div>
-  <div class="badge"><img src="assets/img/logo-cobracor-symbol.png" alt="Cobracor"><small>COBRACOR</small><strong>Excelência</strong><small>EM CADA ENTREGA</small></div>
+  <figure class="hero-feature">
+   <img src="assets/img/portfolio/seucarro-01.jpeg" alt="Obra comercial executada pela Cobracor" width="1200" height="900">
+   <figcaption><span>Obra realizada</span><strong>Seu Carro — Praia Grande/SP</strong></figcaption>
+  </figure>
  </div>
 </section>
 
@@ -61,10 +83,10 @@
   <h2>Soluções completas para sua obra.</h2>
   <p class="lead">Uma única equipe para coordenar, executar e acompanhar cada etapa.</p>
   <div class="grid4">
-   <div class="card"><span class="n">01</span><h3>Reformas completas</h3><p>Do planejamento à entrega, cuidamos de todas as etapas da sua reforma.</p><a data-wa href="#">Pedir orçamento</a></div>
-   <div class="card"><span class="n">02</span><h3>Construção e gestão</h3><p>Execução organizada, acompanhamento técnico e controle de prazos.</p><a data-wa href="#">Pedir orçamento</a></div>
-   <div class="card"><span class="n">03</span><h3>Drywall e pintura</h3><p>Soluções modernas para forros, divisórias, iluminação e acabamentos.</p><a data-wa href="#">Pedir orçamento</a></div>
-   <div class="card"><span class="n">04</span><h3>Portas e esquadrias</h3><p>Vidros, alumínio e soluções sob medida com instalação profissional.</p><a data-wa href="#">Pedir orçamento</a></div>
+  <article class="card service-card"><img src="assets/img/portfolio/nexone-destaque-site.png" alt="Reforma residencial completa" loading="lazy" width="720" height="450"><div class="service-card__body"><span class="n">01</span><h3>Reformas completas</h3><p>Planejamento, execução e acompanhamento para renovar ambientes com organização e acabamento profissional.</p><a data-wa href="#">Pedir orçamento</a></div></article>
+  <article class="card service-card"><img src="assets/img/portfolio/transzero-01.jpeg" alt="Construção e gestão de obra" loading="lazy" width="720" height="450"><div class="service-card__body"><span class="n">02</span><h3>Construção e gestão</h3><p>Execução organizada, controle de prazos e acompanhamento técnico em todas as etapas da obra.</p><a data-wa href="#">Pedir orçamento</a></div></article>
+  <article class="card service-card"><img src="assets/img/portfolio/shopee-01.jpeg" alt="Drywall e pintura em obra corporativa" loading="lazy" width="720" height="450"><div class="service-card__body"><span class="n">03</span><h3>Drywall e pintura</h3><p>Forros, divisórias, preparação de superfícies e acabamentos modernos para ambientes funcionais.</p><a data-wa href="#">Pedir orçamento</a></div></article>
+  <article class="card service-card"><img src="assets/img/portfolio/residencial-divisoria-1.jpeg" alt="Portas e esquadrias em projeto residencial" loading="lazy" width="720" height="450"><div class="service-card__body"><span class="n">04</span><h3>Portas e esquadrias</h3><p>Vidros, alumínio e soluções sob medida instaladas com precisão e atenção aos detalhes.</p><a data-wa href="#">Pedir orçamento</a></div></article>
   </div>
  </div>
 </section>
@@ -74,8 +96,16 @@
   <p class="eyebrow">Obras realizadas</p>
   <h2>Nosso trabalho fala por nós.</h2>
   <p class="lead">Uma trajetória construída desde 2018, com projetos corporativos, educacionais, religiosos e residenciais.</p>
+  <div class="portfolio-filters" role="group" aria-label="Filtrar obras">
+   <button class="filter-btn active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
+   <button class="filter-btn" type="button" data-filter="residencial" aria-pressed="false">Residencial</button>
+   <button class="filter-btn" type="button" data-filter="corporativo" aria-pressed="false">Corporativo</button>
+   <button class="filter-btn" type="button" data-filter="industrial" aria-pressed="false">Industrial</button>
+   <button class="filter-btn" type="button" data-filter="institucional" aria-pressed="false">Institucional</button>
+  </div>
   <p class="eyebrow" style="margin-top:36px">Trajetória Cobracor — Obras que fazem parte da nossa história</p>
   <div id="projects"></div>
+  <div class="portfolio-toggle"><button class="btn ghost" id="portfolio-toggle" type="button" aria-expanded="false">Ver todas as obras</button></div>
  </div>
 </section>
 
@@ -105,12 +135,37 @@
  </div>
 </section>
 
+<section class="visit-strip" aria-label="Atendimento Cobracor">
+ <div class="wrap visit-strip__grid">
+  <div><span>01</span><strong>Visita técnica</strong><p>Acompanhamento direto na avaliação da sua necessidade.</p></div>
+  <div><span>02</span><strong>Proposta detalhada</strong><p>Escopo claro, organização e comunicação transparente.</p></div>
+  <div><span>03</span><strong>Atendimento regional</strong><p>Atuação em São Paulo e em projetos em outras regiões.</p></div>
+ </div>
+</section>
+
 <section class="cta" id="contato">
  <div class="wrap">
   <p class="eyebrow">Vamos construir juntos?</p>
   <h2>Seu próximo projeto começa aqui.</h2>
   <p class="lead">Conte o que você precisa e receba um atendimento direto da Cobracor.</p>
-  <div class="actions"><a class="btn solid" data-wa href="#">Chamar no WhatsApp</a><a class="btn ghost" href="tel:+5511933134955">(11) 93313-4955</a></div>
+ <form id="budget-form" class="budget-form">
+  <label>Seu nome<input type="text" name="name" autocomplete="name" required></label>
+  <label>Telefone / WhatsApp<input type="tel" name="phone" autocomplete="tel" required></label>
+  <label>Tipo de projeto
+   <select name="service" required>
+    <option value="">Selecione</option>
+    <option>Reforma completa</option>
+    <option>Construção e gestão</option>
+    <option>Drywall e pintura</option>
+    <option>Portas e esquadrias</option>
+    <option>Outro</option>
+   </select>
+  </label>
+  <label>Cidade do projeto<input type="text" name="city" autocomplete="address-level2" required></label>
+  <label class="budget-message">Conte um pouco sobre a obra<textarea name="message" rows="4" required></textarea></label>
+  <button class="btn solid" type="submit">Solicitar orçamento pelo WhatsApp</button>
+ </form>
+ <div class="cta-phone"><a href="tel:+5511933134955">(11) 93313-4955</a></div>
  </div>
 </section>
 </main>

@@ -3,9 +3,14 @@
 const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
 const GOLD=0xc9a24b,cl=v=>Math.min(1,Math.max(0,v));
 const $=id=>document.getElementById(id);
+if(sessionStorage.getItem("cobracor-intro")==="seen"){
+ const intro=$("intro");
+ if(intro)intro.remove();
+ document.body.style.overflow="";
+}
 
 /* ---------- Prédio 3D construído em etapas ---------- */
-if(!window.THREE){$("intro").remove();return}
+if(!window.THREE){const intro=$("intro");if(intro)intro.remove();return}
 function build(){
  const g=new THREE.Group();
  const mat=(c,o)=>new THREE.MeshBasicMaterial({color:c,transparent:true,opacity:o==null?1:o});
@@ -41,14 +46,15 @@ const mk=(c,a)=>{const r=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:
 
 /* Tela de construção (intro) */
 const names=["Terreno e projeto","Fundação","Pilares estruturais","Lajes","Paredes e vidros","Cobertura e entrega"];
+if($("intro")){
 try{
  const r=mk($("introC")),sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(45,1,.1,100),b=build();sc.add(b.g);
  const size=()=>{const m=innerWidth<700;r.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;
   cam.position.set(m?12:8,6.5,m?16:10.5);cam.lookAt(0,3.2,0);cam.updateProjectionMatrix()};
  size();addEventListener("resize",size);
  document.body.style.overflow="hidden";
- const D=reduce?600:9000,t0=performance.now();let done=false,raf,wait=0;
- const close=()=>{if(done)return;done=true;$("intro").classList.add("out");document.body.style.overflow="";
+ const D=reduce?400:2400,t0=performance.now();let done=false,raf,wait=0;
+ const close=()=>{if(done)return;done=true;sessionStorage.setItem("cobracor-intro","seen");$("intro").classList.add("out");document.body.style.overflow="";
   setTimeout(()=>{cancelAnimationFrame(raf);r.dispose();$("intro").remove()},1000)};
  $("iskip").onclick=close;
  (function loop(now){
@@ -56,10 +62,11 @@ try{
   b.setP(p);b.g.rotation.y=.5+p*3.2;b.jib.rotation.y=now/1500;
   $("istep").textContent="Etapa "+(k+1)+" de 6";$("iname").textContent=names[k];$("ibar").style.width=p*100+"%";
   r.render(sc,cam);
-  if(p>=1&&!done){$("iname").textContent="Obra entregue. Bem-vindo!";if(!wait)wait=now+1300;if(now>wait)close()}
+  if(p>=1&&!done){$("iname").textContent="Obra entregue. Bem-vindo!";if(!wait)wait=now+350;if(now>wait)close()}
   raf=requestAnimationFrame(loop);
  })(t0);
 }catch(e){$("intro").remove();document.body.style.overflow=""}
+ }
 
 /* Fundo 3D: o prédio vai sendo construído conforme você rola a página */
 try{
